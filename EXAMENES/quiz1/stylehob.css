@@ -1,0 +1,38 @@
+.cajon1{
+    background-color: rgb(194, 162, 240);
+    margin: 70px;
+    padding: 30px;
+}
+
+.cajon2{
+    margin: 50px;
+    padding: 30px;
+    padding-bottom: 0;
+}
+
+.cajon3{
+    background-color: rgb(229, 223, 240);
+    margin: 70px;
+    padding: 50px;
+}
+
+h1{
+    font-size: 8vh;
+    color: black;
+    text-align: center;
+}
+
+h1,h2{
+    margin: 0;
+}
+
+.quote{
+    font-size: 20px;
+    text-align: center;
+    margin: 40px;
+}
+
+.header_info{
+    font-size: 20px;
+    text-align: center;
+}
