@@ -27,6 +27,7 @@ print(tiempo_final-tiempo_inicial)
 x= int (input('ingrese cantidad a acumular : '))
 tiempo_inicial = time.time()
 acumulador= 0
+
 for i in range (x):
   for j in range (x):
    acumulador +=1
