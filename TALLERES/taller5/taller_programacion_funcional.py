@@ -56,3 +56,28 @@ print (listaPares)
 impar = lambda elemento : elemento %2 != 0
 listaImpares = list (filter(impar,Numeros))
 print (listaImpares)
+
+#FUNCIONES REDUCE
+from functools  import reduce
+#punto1
+listaRed = [10,9,8,7,6,5,4,3,2]
+sumatoria_restas = lambda acumulador =0 , elemento =0 : acumulador - elemento
+resultado = reduce (sumatoria_restas, lista)
+print (resultado)
+
+#punto2
+palabras = ["El ","carro ", "es ", "blanco"]
+frase = lambda acumulador =0 , elemento =0 : acumulador + elemento
+fraseResultante = reduce (frase, palabras)
+print (fraseResultante)
+
+#punto3
+numerosEnteros = [5,3,6,8,4,7,2]
+dividir = lambda elemento : elemento/2
+resultado = list(map (dividir,numerosEnteros))
+
+sumatoria = lambda acumulador =0 , elemento =0 : acumulador + elemento
+listaResultante = list(reduce (sumatoria, resultado))
+print (listaResultante)
+
+#preguntar por este ultimo punto
