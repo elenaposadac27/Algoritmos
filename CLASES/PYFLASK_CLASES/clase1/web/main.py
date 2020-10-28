@@ -9,6 +9,7 @@ def homeRoute():
     response = make_response(redirect("hello"))
     response.set_cookie("ip",user_ip)
     response.set_cookie("perro", "Kira")
+    response.set_cookie("nombre", "Elena")
     return response
 
 @app.route("/hello")
@@ -17,5 +18,9 @@ def helloRoute():
     ip = request.cookies.get("ip")
     return render_template("hello.html", mascota = perro, userIP = ip)
 
+@app.route("/nombre")
+def nameRoute():
+    nombre = request.cookies.get("nombre")
+    return render_template("nombre.html", name = nombre)
 if __name__== "__main__":
     app.run()
