@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP | people</title>
+    <link rel="stylesheet" href="{{url_for("static", filename ="css/home.css")}}">
+</head>
+<body>
+    <h1 style="color: blueviolet;">Mis personas favoritas son:</h1>
+    <h2>{{persona1}}</h2>
+    <img src="{{url_for("static", filename ="images/Mamá.jpeg")}}">
+    <h2>{{persona2}}</h2>
+    <img src="{{url_for("static", filename ="images/Papá.jpeg")}}">     
+    <h2>{{persona3}}</h2>
+    <img src="{{url_for("static", filename ="images/Hermanas.jpeg")}}">  
+    <h2>{{persona4}}</h2>
+    <img src="{{url_for("static", filename ="images/Abuelos.jpeg")}}">  
+    <h2>{{persona5}}</h2>
+    <img src="{{url_for("static", filename ="images/Nicolas.jpeg")}}">  
+    <a href="/">REGRESEMOS AL HOME</a>
+</body>
+</html>
