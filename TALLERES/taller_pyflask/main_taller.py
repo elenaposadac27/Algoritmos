@@ -7,6 +7,10 @@ app = Flask(__name__)
 def homeRoute():
     return render_template("home.html")
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template("404.html")
+
 @app.route("/places")
 def placesRoute():
     return render_template("places.html")
