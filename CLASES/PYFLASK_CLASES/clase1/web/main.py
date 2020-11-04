@@ -12,6 +12,10 @@ def homeRoute():
     response.set_cookie("nombre", "Elena")
     return response
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template("404.html")
+
 @app.route("/hello")
 def helloRoute():
     perro = request.cookies.get("perro")
