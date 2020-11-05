@@ -1,0 +1,26 @@
+h1{
+    color: darkslateblue;
+}
+
+h2{
+    color: darksalmon;
+}
+
+img{
+    height: 40%;
+    width: 40%
+}
+
+a{
+    appearance: button;
+    text-decoration: none;
+    color: white;
+    background-color: darkslateblue;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 2px 3px rgb(126, 121, 161);
+    padding-block-start: 5px;
+    text-size-adjust: 50%;
+}

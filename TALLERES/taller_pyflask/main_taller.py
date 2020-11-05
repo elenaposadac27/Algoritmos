@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response, redirect, render_template
+from flask import Flask, request, make_response, redirect, render_template, url_for
 
 #Se crea un objeto del tipo app que almacenará la aplicación
 app = Flask(__name__)
@@ -12,7 +12,7 @@ def baseRoute():
     return redirect(url_for('login'))
 
 @app.route("/home")
-def homeRoute():
+def home():
     return render_template("home.html")
 
 @app.route("/places")
