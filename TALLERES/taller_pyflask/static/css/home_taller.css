@@ -24,3 +24,9 @@ a{
     padding-block-start: 5px;
     text-size-adjust: 50%;
 }
+
+.cajon1{
+    background-color: rgb(195, 193, 197);
+    margin: 70px;
+    padding: 30px;
+}

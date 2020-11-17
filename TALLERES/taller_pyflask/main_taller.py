@@ -18,6 +18,18 @@ def baseRoute():
 def home():
     return render_template("home.html")
 
+@app.route("/success")
+def success():
+    return render_template("success.html")
+
+@app.route('/signin', methods = ['POST','GET'])
+def singin():
+    if request.method == "POST":
+        helper.saveUser (data,fileNameCredentials,request.form["name"], request.form["pass"])
+        return redirect(url_for('success'))
+    else:
+        return render_template('signIn.html')
+
 @app.route("/places")
 def placesRoute():
     return render_template("places.html")
@@ -25,17 +37,23 @@ def placesRoute():
 def peopleRoute():
     return render_template("people.html")
 
+
 @app.route('/login', methods = ['POST','GET'])
 def login():
+    data = helper.leerArchivo(fileNameCredentials)
     if request.method == 'POST':
         nameUser = request.form['name']
         passUser = request.form ['pass']
-        if (passUser == 'hola1234'):
+        output = helper.validatePassword (data, nameUser, passUser)
+        if (output == True):
             return  redirect(url_for('home'))
+        elif (output == "Usuario no registrado"):
+            return redirect(url_for("singin"))
         else:
             return 'Falló proceso de autenticación'
     else: 
         return render_template('login.html')
+
 
 if __name__== "__main__":
     app.run()
