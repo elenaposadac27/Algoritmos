@@ -1,7 +1,10 @@
 from flask import Flask, request, make_response, redirect, render_template, url_for
+import utilidades as helper
 
 # se crea un objeto del tipo app
 app = Flask(__name__)
+fileNameCredentials = "usuarios.csv"
+data = helper.leerArchivo(fileNameCredentials)
 
 @app.errorhandler(404)
 def not_found(error):
@@ -12,17 +15,35 @@ def not_found(error):
 def baseRoute():
     return redirect(url_for('login'))
 
+
 @app.route('/home')
 def home():
    return render_template('home.html')
 
+@app.route("/success")
+def success():
+    return render_template("success.html")
+
+@app.route('/signin', methods = ['POST','GET'])
+def singin():
+    if request.method == "POST":
+        helper.saveUser (data,fileNameCredentials,request.form["name"], request.form["pass"])
+        return redirect(url_for('success'))
+    else:
+        return render_template('signIn.html')
+
+
 @app.route('/login', methods = ['POST','GET'])
 def login():
+    data = helper.leerArchivo(fileNameCredentials)
     if request.method == 'POST':
         nameUser = request.form['name']
         passUser = request.form ['pass']
-        if (passUser == 'hola1234'):
+        output = helper.validatePassword (data, nameUser, passUser)
+        if (output == True):
             return  redirect(url_for('home'))
+        elif (output == "Usuario no registrado"):
+            return redirect(url_for("singin"))
         else:
             return 'Falló proceso de autenticación'
     else: 

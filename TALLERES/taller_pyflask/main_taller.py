@@ -1,7 +1,10 @@
 from flask import Flask, request, make_response, redirect, render_template, url_for
+import utilidades as helper
 
 #Se crea un objeto del tipo app que almacenará la aplicación
 app = Flask(__name__)
+fileNameCredentials = "users.csv"
+data = helper.leerArchivo(fileNameCredentials)
 
 @app.errorhandler(404)
 def not_found(error):
